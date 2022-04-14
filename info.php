@@ -2,6 +2,10 @@
 $connect = sqlsrv_connect(“shubhamsinha.database.windows.net”, “shubham”, “Vnitcse@104”); 
 $user_info = “INSERT INTO students 
 (roll,name,marks) VALUES ('$_POST[roll]', '$_POST[name]','$_POST[username]')”; 
-echo “Your information was added to the database.”;
+$rs = sqlsrv_query($connect, $user_info);
+if($rs)
+{
+	echo "Contact Records Inserted";
+}
 sqlsrv_close($connect); 
 ?>
